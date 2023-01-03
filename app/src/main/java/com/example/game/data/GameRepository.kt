@@ -8,7 +8,7 @@ import kotlinx.coroutines.tasks.await
 
 object GameRepository {
 
-    suspend fun getFirebaseResponse(): Boolean {
+    suspend fun getFirebaseGamePass(): Boolean {
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
             minimumFetchIntervalInSeconds = 1800
@@ -16,5 +16,15 @@ object GameRepository {
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.fetchAndActivate().await()
         return remoteConfig.getBoolean("game_pass")
+    }
+
+    suspend fun getFirebaseWeblink(): String {
+        val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
+        val configSettings = remoteConfigSettings {
+            minimumFetchIntervalInSeconds = 1800
+        }
+        remoteConfig.setConfigSettingsAsync(configSettings)
+        remoteConfig.fetchAndActivate().await()
+        return remoteConfig.getString("web_link")
     }
 }

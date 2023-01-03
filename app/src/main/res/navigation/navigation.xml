@@ -16,7 +16,16 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.game.ui.GameFragment"
+        android:name="com.example.game.ui.GameMenuFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_gameplayFragment"
+            app:destination="@id/gameplayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameplayFragment"
+        android:name="com.example.game.ui.GameplayFragment"
+        android:label="fragment_gameplay"
+        tools:layout="@layout/fragment_gameplay" />
 </navigation>

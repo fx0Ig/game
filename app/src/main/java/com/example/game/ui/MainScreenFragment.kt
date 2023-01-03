@@ -16,10 +16,6 @@ class MainScreenFragment : Fragment() {
     private val viewModel: MainScreenViewModel by viewModels()
     lateinit var binding: FragmentMainScreenBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,22 +32,12 @@ class MainScreenFragment : Fragment() {
                 1 -> binding.webView.visibility = View.VISIBLE
             }
             setupWebView()
-//        viewModel.result.observe(viewLifecycleOwner){
-//            when(it){
-//                0-> findNavController().navigate(R.id.action_mainScreenFragment_to_gameFragment)
-//                1-> binding.webView.visibility = View.VISIBLE
-//            }
-//        }
         }
     }
 
 
 
     private fun setupWebView() {
-        binding.webView.loadUrl("https://webqr.com/")
-//        binding.webView.visibility = View.GONE
+        binding.webView.loadUrl(viewModel.link.value.toString())
     }
-
-
-
 }

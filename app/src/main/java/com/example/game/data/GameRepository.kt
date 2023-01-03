@@ -6,7 +6,7 @@ import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import kotlinx.coroutines.tasks.await
 
-class GameRepository {
+object GameRepository {
 
     suspend fun getFirebaseResponse(): Boolean {
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
